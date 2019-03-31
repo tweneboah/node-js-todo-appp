@@ -72,3 +72,42 @@ const item4 = new Item ({
     name: 'lesson plan'
 })
 ```
+
+
+## STEP 7 PASSING JS VALUE TO WEBPAGE
+1. I created js function to display date of the day
+
+2. I created a route to display the value
+
+
+
+
+```javascript
+app.get('/', (req, res) => {
+
+    let today = new Date();
+ 
+    let options = {
+         weekday: 'long',
+         day: 'numeric',
+         month: 'long'
+    };
+    let day  = today.toLocaleString('en-US', options)
+        //Rendering to webpage
+        res.render('list', {kindOfDay: day})
+   
+        })
+})
+```
+
+3. The res.render() accept two arguements: 1. The ejs file which will display the value , 2. Objects.
+
+ res.render('list', {kindOfDay: day}) Means assign the value of day from the function above and assign it to a varriable called kindOfDay, This holds the value of the function.
+
+ After that i passed the the varriable kindOfDay to the ejs file for displaying  <h1>It's a <%=kindOfDay%> </h1>
+
+4. To display any value to webpage pass it to this res.renderres.render('list', {kindOfDay: day, newListItem: foundItem
+
+
+
+

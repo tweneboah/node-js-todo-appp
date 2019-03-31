@@ -143,3 +143,37 @@ app.post('/', (req, res) => {
  const  itemName = req.body.newItem;
 ```
 4. The 'newItem' is the name varible from the field
+
+
+## STEP 8 NOW LET'S ADD DATA TO DATABASE
+1. Grab the value from the form and assign it to a variable 
+```javascript
+ const  itemName = req.body.newItem;
+```
+
+2. Create instance of the model and assign the value from the form to respective properties of the model, after that redirect the user to homepage 
+
+3. Use this to save to the DB
+```javascript
+ item.save()
+```
+```javascript
+ const item = new Item ({
+          name: itemName
+      });
+
+      res.redirect('/');
+```
+
+## OVERALL CODE
+```javascript
+app.post('/', (req, res) => {
+    const  itemName = req.body.newItem;
+      const item = new Item ({
+          name: itemName
+      });
+
+      item.save()
+     res.redirect('/');
+})
+```

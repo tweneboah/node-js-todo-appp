@@ -133,4 +133,13 @@ app.post('/', (req, res) => {
  </form>
 ```
 
+## HOW THE FORM AND THE ROUTE COMMUNICATE
+1. The input field has a name variable called newItem
 
+2. When a user visit th above route which is the home route, a form will display, and when a user submit the form data, since the form has an action = '/' and method method="POST", it will move to that route, and any functions declared in that route will be executed.
+
+3. When a user submit a form, the data from that field can be found in the route as and stored inside the itemName variable, This is achieved with the help of body-parser module
+```javascript
+ const  itemName = req.body.newItem;
+```
+4. The 'newItem' is the name varible from the field

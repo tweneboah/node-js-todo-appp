@@ -108,6 +108,29 @@ app.get('/', (req, res) => {
 
 4. To display any value to webpage pass it to this res.renderres.render('list', {kindOfDay: day, newListItem: foundItem
 
+## STEP 8 ADDING DATA FROM A FORM TO DATABASE
+1. I created a post route. This will send request to a form for processing the data
 
+
+2. I created a form to receive the request from the post route for the processing
+
+```javascript
+app.post('/', (req, res) => {
+    const  itemName = req.body.newItem;
+      const item = new Item ({
+          name: itemName
+      });
+
+      item.save()
+
+     res.redirect('/');
+})
+```
+```javascript
+ <form class="item" action="/" method="POST">
+            <input type="text" name="newItem" placeholder="Enter todo">
+            <button type="submit" name="list">+</button>
+ </form>
+```
 
 
